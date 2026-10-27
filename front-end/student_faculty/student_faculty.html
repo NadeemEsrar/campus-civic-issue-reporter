@@ -24,7 +24,7 @@
         </a>
 <span class="text-label-sm font-label-sm text-outline px-2 py-0.5 border border-outline-variant rounded bg-surface-container-low">UCS503 Course Project</span>
 
-<nav class="hidden md:flex items-center gap-6 ml-4"><a class="border-b-2 border-secondary text-secondary font-semibold pb-1 text-label-md font-label-md" href="#">Dashboard</a><a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md transition-colors pb-1" href="../reports/reports.html">Reports</a><a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md transition-colors pb-1" href="#analytics">Analytics</a></nav></div>
+<nav class="hidden md:flex items-center gap-6 ml-4"><a class="border-b-2 border-secondary text-secondary font-semibold pb-1 text-label-md font-label-md" href="#">Dashboard</a><a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md transition-colors pb-1" href="../report_issue/report_issue.html">Report an Issue</a><a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md transition-colors pb-1" href="../analytics/analytics.html">Analytics</a></nav></div>
 <!-- Trailing Action Cluster -->
 <div class="flex items-center gap-3">
 <button class="p-1.5 text-on-surface-variant hover:text-on-surface rounded transition-colors" title="Notifications">
@@ -52,69 +52,13 @@
 </div>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-3.5">
+<div class="lg:col-span-12 flex flex-col gap-3.5">
 <div class="flex items-center justify-between px-1">
 <h2 class="text-headline-sm font-headline-sm text-primary tracking-tight">Active Incident Feed</h2>
 <span class="text-label-sm font-label-sm text-outline">Live from the backend</span>
 </div>
 <div id="issues-feed-list" class="flex flex-col gap-3.5"></div>
 <div id="issues-feed-empty" class="hidden text-center py-16 text-on-surface-variant text-body-sm font-body-sm">No reports match right now.</div>
-</div>
-<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-6 sticky top-20">
-<aside class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 shadow-sm" id="report-panel">
-<div class="flex items-center justify-between border-b border-outline-variant pb-3 mb-4">
-<div>
-<h2 class="text-headline-sm font-headline-sm text-primary tracking-tight">+ Report an Issue</h2>
-<p class="text-label-sm font-label-sm text-outline">Direct ticket dispatch to campus facilities</p>
-</div>
-<span class="material-symbols-outlined text-outline text-[20px]">assignment_add</span>
-</div>
-<form class="space-y-4" id="report-form">
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5">Photo Evidence <span class="text-outline font-normal">[OPTIONAL]</span></label>
-<input id="report-photo" type="file" accept="image/png,image/jpeg,image/webp,image/heic" class="w-full text-body-sm font-body-sm border-2 border-dashed border-outline-variant hover:border-secondary rounded p-3 bg-surface transition-colors cursor-pointer">
-</div>
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Issue Title <span class="text-error text-label-sm font-code-sm">[REQUIRED]</span></label>
-<input id="report-title" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="e.g. Loose ceiling wire or sink leakage" required type="text">
-</div>
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Category <span class="text-error text-label-sm font-code-sm">[REQUIRED]</span></label>
-<select id="report-category" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" required>
-<option disabled selected value="">Loading categories&hellip;</option>
-</select>
-</div>
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Department <span class="text-outline font-normal">[OVERRIDE AUTO-ROUTING]</span></label>
-<select id="report-department-override" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors">
-<option value="">Auto-suggest from category (recommended)</option>
-</select>
-</div>
-<div class="grid grid-cols-2 gap-3">
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Building <span class="text-error text-label-sm font-code-sm">*</span></label>
-<input id="report-building" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="e.g. Hostel-3" required type="text">
-</div>
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Floor <span class="text-error text-label-sm font-code-sm">*</span></label>
-<input id="report-floor" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="e.g. Ground or 2" required type="text">
-</div>
-</div>
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Room / Area <span class="text-error text-label-sm font-code-sm">*</span></label>
-<input id="report-area-room" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="e.g. Room 204 or Boys' Washroom" required type="text">
-</div>
-<div>
-<label class="block text-label-md font-label-md text-on-surface-variant mb-1">Description <span class="text-outline font-normal">[DETAILS HELP DISPATCH]</span></label>
-<textarea id="report-description" class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors resize-none" placeholder="Provide context, safety concerns, or specific times issue occurs..." rows="3" required></textarea>
-</div>
-<p id="report-error" class="hidden text-error text-body-sm font-body-sm"></p>
-<button id="report-submit" class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded font-title-md text-title-md shadow-sm transition-all duration-150 active:scale-[0.99] flex items-center justify-center gap-2" type="submit">
-<span>Submit Report</span>
-<span class="material-symbols-outlined text-[18px]">send</span>
-</button>
-</form>
-</aside>
 </div>
 </div>
 </main>

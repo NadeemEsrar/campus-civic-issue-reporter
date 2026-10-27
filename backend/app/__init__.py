@@ -20,12 +20,14 @@ def create_app(config_object=Config):
 
     init_db(app)
 
+    from app.analytics.routes import bp as analytics_bp
     from app.auth.routes import bp as auth_bp
     from app.departments.routes import bp as departments_bp
     from app.issues.routes import bp as issues_bp
     from app.notifications.routes import bp as notifications_bp
     from app.uploads.routes import bp as uploads_bp
 
+    app.register_blueprint(analytics_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(departments_bp)
     app.register_blueprint(issues_bp)
